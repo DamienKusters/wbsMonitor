@@ -14,9 +14,11 @@ body
 }
 
 .VerticalALign{
-    vertical-align: middle!important;
+    vertical-align: left;
 }
 
 th{
-    text-align: center;
+    text-align: left;
 }
+
+

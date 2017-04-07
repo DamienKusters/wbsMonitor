@@ -34,8 +34,8 @@
                                 <th>Time estimated</th>
                                 <th>Time spent</th>
                                 <th>Date added</th>
-                                <th></th>
-                                <th></th>
+                                <th>view</th>
+                                <th>remove</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,16 +68,19 @@
                                 <th>Do</th>
                                 <th>Check</th>
                                 <th>Act</th>
-                                <th></th>
-                                <th></th>
+                                <th>start</th>
+                                <th>remove</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="VerticalALign Number">1</td>
                                 <td class="VerticalALign Task"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Predecessor"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Who"><input class="form-control" type="text" /></td>
+                                <td class="VerticalALign Predecessor"><input class="form-control" type="number" /></td>
+                                <td class="VerticalALign Who">
+                                     <select class="selectpicker" data-width="100px">
+                                     </select>
+                                </td>
                                 <td class="VerticalALign MoSCoW">
                                     <select class="selectpicker" data-width="100px">
                                         <option value="Must">Must</option>
@@ -96,8 +99,11 @@
                             <tr>
                                 <td class="VerticalALign Number">2</td>
                                 <td class="VerticalALign Task"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Predecessor"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Who"><input class="form-control" type="text" /></td>
+                                <td class="VerticalALign Predecessor"><input class="form-control" type="number" /></td>
+                                <td class="VerticalALign Who">
+                                    <select class="selectpicker" data-width="100px">
+                                     </select>
+                                </td>
                                 <td class="VerticalALign MoSCoW">
                                     <select class="selectpicker" data-width="100px">
                                         <option value="Must">Must</option>
@@ -116,8 +122,11 @@
                             <tr>
                                 <td class="VerticalALign Number">3</td>
                                 <td class="VerticalALign Task"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Predecessor"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Who"><input class="form-control" type="text" /></td>
+                                <td class="VerticalALign Predecessor"><input class="form-control" type="number" /></td>
+                                <td class="VerticalALign Who">
+                                    <select class="selectpicker" data-width="100px">
+                                    </select>
+                                </td>
                                 <td class="VerticalALign MoSCoW">
                                     <select class="selectpicker" data-width="100px">
                                         <option value="Must">Must</option>
