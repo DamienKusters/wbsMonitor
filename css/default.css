@@ -16,3 +16,7 @@ body
 .VerticalALign{
     vertical-align: middle!important;
 }
+
+th{
+    text-align: center;
+}

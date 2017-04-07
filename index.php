@@ -3,7 +3,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="css/default.css" rel="stylesheet">
         <link rel="icon"href="img/logo.png" type="image/png" />
     </head>
@@ -45,16 +46,12 @@
                                 <td class="VerticalALign Predecessor"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Who"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign MoSCoW">
-                                    <div class="dropdown">
-                                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">MoSCoW
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Must</a></li>
-                                            <li><a href="#">Could</a></li>
-                                            <li><a href="#">Should</a></li>
-                                            <li><a href="#">Won't</a></li>
-                                        </ul>
-                                    </div>
+                                    <select class="selectpicker" data-width="100px">
+                                        <option value="Must">Must</option>
+                                        <option value="Could">Could</option>
+                                        <option value="Should">Should</option>
+                                        <option value="Won't">Won't</option>
+                                    </select>
                                 </td>
                                 <td class="VerticalALign Plan"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Do"><input class="form-control" type="text" /></td>
@@ -69,16 +66,12 @@
                                 <td class="VerticalALign Predecessor"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Who"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign MoSCoW">
-                                    <div class="dropdown">
-                                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">MoSCoW
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Must</a></li>
-                                            <li><a href="#">Could</a></li>
-                                            <li><a href="#">Should</a></li>
-                                            <li><a href="#">Won't</a></li>
-                                        </ul>
-                                    </div>
+                                    <select class="selectpicker" data-width="100px">
+                                        <option value="Must">Must</option>
+                                        <option value="Could">Could</option>
+                                        <option value="Should">Should</option>
+                                        <option value="Won't">Won't</option>
+                                    </select>
                                 </td>
                                 <td class="VerticalALign Plan"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Do"><input class="form-control" type="text" /></td>
@@ -93,16 +86,12 @@
                                 <td class="VerticalALign Predecessor"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Who"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign MoSCoW">
-                                    <div class="dropdown">
-                                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">MoSCoW
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Must</a></li>
-                                            <li><a href="#">Could</a></li>
-                                            <li><a href="#">Should</a></li>
-                                            <li><a href="#">Won't</a></li>
-                                        </ul>
-                                    </div>
+                                    <select class="selectpicker" data-width="100px">
+                                        <option value="Must">Must</option>
+                                        <option value="Could">Could</option>
+                                        <option value="Should">Should</option>
+                                        <option value="Won't">Won't</option>
+                                    </select>
                                 </td>
                                 <td class="VerticalALign Plan"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Do"><input class="form-control" type="text" /></td>
@@ -111,7 +100,17 @@
                                 <td class="VerticalALign Start"><input class="btn btn-success" type="button" value="Start" /></td>
                                 <td class="VerticalALign Remove"><input class="btn btn-warning" type="button" value="Taak verwijderen"/></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: black; color: white;">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align: center;">00:00:00</td>
+                                <td style="text-align: center;">00:00:00</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -121,6 +120,7 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="css/bootstrap-select-1.12.2/dist/js/bootstrap-select.min.js"></script>
         <script src="js/default.js"></script>
     </body>
 </html>
