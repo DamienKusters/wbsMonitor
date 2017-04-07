@@ -2,3 +2,17 @@ body
 {
   margin: 0;
 }
+
+.HeaderRow{
+    background-color: black;
+    height: 100px;
+    opacity: 0.9;
+}
+
+.logo{
+    height: 100px;
+}
+
+.VerticalALign{
+    vertical-align: middle!important;
+}
