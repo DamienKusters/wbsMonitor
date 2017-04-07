@@ -6,14 +6,14 @@
   <link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" rel="stylesheet">
   <link href="css/default.css" rel="stylesheet">
-  <link rel="icon"href="img/logo.png" type="image/png" />
+  <link rel="icon" href="img/logo.png" type="image/png" />
 </head>
 <body>
   <!-- Header  -->
   <div class="container-fluid">
       <div class="row HeaderRow">
           <div class="col-md-5 col-xs-12">
-              <img class="img-responsive logo" src="img/logo.png"></a>
+              <img class="img-responsive logo" src="img/logo.png">
           </div>
           <div class="col-md-7 col-xs-0"></div>
       </div>
@@ -29,16 +29,19 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Time estimated</th>
+            <th>Time spent</th>
             <th>Date added</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>TEst</th>
+            <th>0</th>
             <th>test</th>
-            <th>test</th>
-            <th>Remove</th>
+            <th>00:00:00</th>
+            <th>00:00:00</th>
+            <th>00-00-00</th>
+            <th><input class="btn btn-info" type="button" value="View" /> <input class="btn btn-warning" type="button" value="Remove" /></th>
           </tr>
         </tbody>
       </table>
