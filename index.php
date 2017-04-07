@@ -27,13 +27,15 @@
             <div class="row">
                 <div class="table-responsive">
                     <table class="table table-striped">
-                        <thead>
+                        <thead style="background-color: #ddd">
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Time estimated</th>
                                 <th>Time spent</th>
                                 <th>Date added</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,10 +45,8 @@
                                 <td>00:00:00</td>
                                 <td>00:00:00</td>
                                 <td>00-00-00</td>
-                                <td>
-                                    <input class="btn btn-info" type="button" value="View" />
-                                    <input class="btn btn-warning" type="button" value="Remove" />
-                                </td>
+                                <td><input class="btn btn-info" type="button" value="View" /></td>
+                                <td><input class="btn btn-warning" type="button" value="Remove" /></td>
                             </tr>
                         </tbody>
                     </table>
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="table-responsive">
                     <table class="table table-striped">
-                        <thead>
+                        <thead style="background-color: #ddd">
                             <tr>
                                 <th>ID</th>
                                 <th>Task</th>
