@@ -4,7 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/jquery-select/css/jquery.select.css">
         <link href="css/default.css" rel="stylesheet">
         <link rel="icon" href="img/logo.png" type="image/png" />
     </head>
@@ -78,11 +78,11 @@
                                 <td class="VerticalALign Task"><input class="form-control" type="text" /></td>
                                 <td class="VerticalALign Predecessor"><input class="form-control" type="number" /></td>
                                 <td class="VerticalALign Who">
-                                     <select class="selectpicker" data-width="100px">
+                                     <select class="fsSelect" data-width="100px">
                                      </select>
                                 </td>
                                 <td class="VerticalALign MoSCoW">
-                                    <select class="selectpicker" data-width="100px">
+                                    <select class="fsSelect" data-width="100px">
                                         <option value="Must">Must</option>
                                         <option value="Could">Could</option>
                                         <option value="Should">Should</option>
@@ -96,52 +96,7 @@
                                 <td class="VerticalALign Start"><input class="btn btn-success" type="button" value="Start" /></td>
                                 <td class="VerticalALign Remove"><input class="btn btn-warning" type="button" value="Remove"/></td>
                             </tr>
-                            <tr>
-                                <td class="VerticalALign Number">2</td>
-                                <td class="VerticalALign Task"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Predecessor"><input class="form-control" type="number" /></td>
-                                <td class="VerticalALign Who">
-                                    <select class="selectpicker" data-width="100px">
-                                     </select>
-                                </td>
-                                <td class="VerticalALign MoSCoW">
-                                    <select class="selectpicker" data-width="100px">
-                                        <option value="Must">Must</option>
-                                        <option value="Could">Could</option>
-                                        <option value="Should">Should</option>
-                                        <option value="Won't">Won't</option>
-                                    </select>
-                                </td>
-                                <td class="VerticalALign Plan"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Do"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Check"><textarea class="form-control"></textarea></td>
-                                <td class="VerticalALign Act"><textarea class="form-control"></textarea></td>
-                                <td class="VerticalALign Start"><input class="btn btn-success" type="button" value="Start" /></td>
-                                <td class="VerticalALign Remove"><input class="btn btn-warning" type="button" value="Remove"/></td>
-                            </tr>
-                            <tr>
-                                <td class="VerticalALign Number">3</td>
-                                <td class="VerticalALign Task"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Predecessor"><input class="form-control" type="number" /></td>
-                                <td class="VerticalALign Who">
-                                    <select class="selectpicker" data-width="100px">
-                                    </select>
-                                </td>
-                                <td class="VerticalALign MoSCoW">
-                                    <select class="selectpicker" data-width="100px">
-                                        <option value="Must">Must</option>
-                                        <option value="Could">Could</option>
-                                        <option value="Should">Should</option>
-                                        <option value="Won't">Won't</option>
-                                    </select>
-                                </td>
-                                <td class="VerticalALign Plan"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Do"><input class="form-control" type="text" /></td>
-                                <td class="VerticalALign Check"><textarea class="form-control"></textarea></td>
-                                <td class="VerticalALign Act"><textarea class="form-control"></textarea></td>
-                                <td class="VerticalALign Start"><input class="btn btn-success" type="button" value="Start" /></td>
-                                <td class="VerticalALign Remove"><input class="btn btn-warning" type="button" value="Remove"/></td>
-                            </tr>
+
                             <tr style="background-color: black; color: white;">
                                 <td></td>
                                 <td></td>
@@ -162,7 +117,7 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="css/bootstrap-select-1.12.2/dist/js/bootstrap-select.min.js"></script>
+        <script src="css/jquery-select/js/jquery.select.js"></script>
         <script src="js/default.js"></script>
     </body>
 </html>

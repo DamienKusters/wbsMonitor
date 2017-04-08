@@ -14,7 +14,7 @@ body
 }
 
 .VerticalALign{
-    vertical-align: left;
+    vertical-align: middle!important;
 }
 
 th{
@@ -22,3 +22,18 @@ th{
 }
 
 
+input  {
+    height: 40px!important;
+    min-width: 60px!important;
+}
+
+textarea {
+    height: 50px!important;
+    min-width: 60px!important;
+}
+
+/*
+.skull_select {
+ margin: 0px;
+}
+*/
