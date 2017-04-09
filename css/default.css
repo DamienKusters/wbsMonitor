@@ -17,6 +17,11 @@ body
     vertical-align: middle!important;
 }
 
+
+.table {
+    margin-bottom: 0px;
+}
+
 th{
     text-align: left;
 }
@@ -35,5 +40,5 @@ textarea {
 /*
 .skull_select {
  margin: 0px;
-}
-*/
+}*/
+
