@@ -17,6 +17,63 @@ body
     vertical-align: middle!important;
 }
 
+nav ul  {
+    list-style: none;
+    float: right;
+    margin-right: 20px;
+    margin-top: 24px;
+    background: black;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav #login-trigger , #register-trigger {
+    max-height: 20px;
+    text-decoration: none;
+    border-radius: 3px 0 0 3px;
+}
+
+#login-trigger , #register-trigger{
+    font-size: 14pt!important;
+    font-family: 'Open Sans',serif;
+    font-weight: normal!important;
+    color: white!important;
+}
+
+#login-trigger:hover , #register-trigger:hover{
+    color: #66cc00!important;
+}
+
+nav #login-content , #register-content {
+    position:absolute!important;
+    display: none;
+    margin-top: auto;
+    z-index: 999;
+    background: #fff;
+    background-image: linear-gradient(top, #fff, #eee);
+    padding: 15px;
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+    border-radius: 3px 0 3px 3px;
+}
+
+nav ul #login-content {
+    margin-left: -140px!important;
+}
+
+nav ul #register-content {
+    margin-left: -126px!important;
+}
+
+nav li #login-content , #register-content {
+    width: 250px;
+}
+
+.nopaddingCol {
+    padding: 0 !important;
+    margin: 0 !important;
+}
 
 .table {
     margin-bottom: 0px;
@@ -41,4 +98,3 @@ textarea {
 .skull_select {
  margin: 0px;
 }*/
-
