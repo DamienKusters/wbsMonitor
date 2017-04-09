@@ -21,7 +21,7 @@
                             <li id="login">
                                 <a id="login-trigger"><label style="font-weight:normal;">Inloggen ▼</label></a>
                                 <div id="login-content">
-                                    <form class="form-inline" action="/registrationBeheerder" method="post">
+                                    <form class="form-inline" action="index.php" method="POST">
                                         <fieldset>
                                             <div class="form-group" style="margin-top: 5px;"> E-mail: <input style="margin-top: 10px; margin-bottom: 10px;" class="form-control" type="text" id="emailLogin" name="email"></div><br>
                                             <div class="form-group"> Wachtwoord: <input style="margin-top: 10px;" class="form-control" type="password" id="passwordLogin" name="password"></div>
