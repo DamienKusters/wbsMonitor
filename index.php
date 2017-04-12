@@ -44,28 +44,33 @@
         <!-- Projects Table -->
         <div class="container-fluid">
             <div class="row">
+              <div id="controlPanel">
+                <form>
+                  <input id="btnNewProject" class="btn btn-success" type="button" value="New Project" />
+                </form>
+              </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead style="background-color: #ddd">
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Time estimated</th>
-                                <th>Time spent</th>
                                 <th>Date added</th>
-                                <th>view</th>
-                                <th>remove</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>0</td>
                                 <td>test</td>
-                                <td>00:00:00</td>
-                                <td>00:00:00</td>
                                 <td>00-00-00</td>
                                 <td><input class="btn btn-info" type="button" value="View" /></td>
-                                <td><input class="btn btn-warning" type="button" value="Remove" /></td>
+                                <td><input class="btn btn-danger" type="button" value="Remove" /></td>
                             </tr>
                         </tbody>
                     </table>

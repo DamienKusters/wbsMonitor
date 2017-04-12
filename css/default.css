@@ -94,6 +94,12 @@ textarea {
     min-width: 60px!important;
 }
 
+#controlPanel
+{
+  background-color: #b4b4b4;
+
+}
+
 /*
 .skull_select {
  margin: 0px;

@@ -38,8 +38,11 @@ const createTaskRow = data => $("<tr></tr>")
 
 $(document).ready(() =>
 {
+  $("#btnNewProject").click(newProject);
+
   $(".fsSelect").select();
-  $('#login-trigger').click(function(){
+  $('#login-trigger').click(function()
+  {
       $(this).next('#login-content').slideToggle();
       $(this).toggleClass('active');
       if ($(this).hasClass('active')){
@@ -47,5 +50,10 @@ $(document).ready(() =>
       }else{
           $(this).find('span').html('&#x25BC;');
       }
+  });
 });
-});
+
+function newProject()
+{
+  alert("kek");
+}
