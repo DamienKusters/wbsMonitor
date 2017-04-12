@@ -55,5 +55,16 @@ $(document).ready(() =>
 
 function newProject()
 {
-  alert("kek");
+  var projectnaam = prompt("What would you like to name your new project?");
+  alert(projectnaam);
+
+  $.ajax(
+  {
+    type: 'POST',
+    url:  'newProject.php',
+    data: {
+      projectnaam: 'projectnaam',
+    },
+    success:
+  });
 }
