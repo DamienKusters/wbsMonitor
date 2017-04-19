@@ -1,8 +1,15 @@
 <?php
 include("connect.php");
+$projectName = $_POST["projectnaam"];
 
-$sql = "INSERT INTO project (id, name, added)
-        VALUES ('', '$_POST["projectnaam"]', 'date("Y/m/d")'); ";
+$sql = "INSERT INTO project (name) VALUES ('{$projectName}')";
 
-$query = mysqli_query($con, $getHighscores);
+if(mysqli_query($conn ,$sql))
+{
+  echo "new project added!";
+}
+else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
 ?>

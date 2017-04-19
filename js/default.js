@@ -55,16 +55,21 @@ $(document).ready(() =>
 
 function newProject()
 {
-  var projectnaam = prompt("What would you like to name your new project?");
-  alert(projectnaam);
-
-  $.ajax(
+  var name = prompt("Enter a name for the project");
+  if(name != '' && name != null)//Clicking OK when string is '' || Clicking cancel
   {
-    type: 'POST',
-    url:  'newProject.php',
-    data: {
-      projectnaam: 'projectnaam',
-    },
-    success:
-  });
+    //Before the ajax call we need to be sure the entered name doesn't exist yet,
+    //Protect the input from sql injection
+    //and show a dialog (or show a div) saying the project has been added OR not
+    $.ajax(
+    {
+      type: 'POST',
+      url:  'newProject.php',
+      data:
+      {
+        projectnaam: name
+      }
+    });
+
+  }
 }
