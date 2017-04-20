@@ -65,13 +65,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>0</td>
-                                <td>test</td>
-                                <td>00-00-00</td>
-                                <td><input class="btn btn-info" type="button" value="View" /></td>
-                                <td><input class="btn btn-danger" type="button" value="Remove" /></td>
-                            </tr>
+                          <?php
+                          include 'loadProjects.php';
+                          ?>
                         </tbody>
                     </table>
                 </div>

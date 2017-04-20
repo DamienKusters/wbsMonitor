@@ -8,7 +8,8 @@ if(mysqli_query($conn ,$sql))
 {
   echo "new project added!";
 }
-else {
+else
+{
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 mysqli_close($conn);

@@ -52,11 +52,11 @@ $(document).ready(() =>
       }
   });
 });
-
+//DELETE FROM `wbs_monitor`.`project` WHERE `project`.`id` = 23
 function newProject()
 {
   var name = prompt("Enter a name for the project");
-  if(name != '' && name != null)//Clicking OK when string is '' || Clicking cancel
+  if(name != '' && name != null)//prevent Clicking OK when string is '' or Clicking cancel
   {
     //Before the ajax call we need to be sure the entered name doesn't exist yet,
     //Protect the input from sql injection
@@ -70,6 +70,5 @@ function newProject()
         projectnaam: name
       }
     });
-
   }
 }
