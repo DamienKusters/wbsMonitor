@@ -72,7 +72,9 @@
                     </table>
                 </div>
             </div>
-
+            <div class="container-fluid row" style="background-color:#000000; ">
+              <input class="btn btn-success" type="button" value="Add Task" />
+            </div>
 
             <div class="row">
                 <div class="table-responsive">

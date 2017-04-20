@@ -1,5 +1,6 @@
 <?php
 include("connect.php");
+
 $projectName = $_POST["projectnaam"];
 
 $sql = "INSERT INTO project (name) VALUES ('{$projectName}')";
