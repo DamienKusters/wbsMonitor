@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row HeaderRow">
                 <div class="col-md-5 col-xs-12">
-                    <img class="img-responsive logo" src="img/logo.png">
+                    <img class="img-responsive logo" src="img/logo2.png">
                 </div>
                 <div class="col-md-7 col-xs-0">
                     <nav>
