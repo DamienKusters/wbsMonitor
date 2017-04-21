@@ -99,6 +99,13 @@ textarea {
   background-color: #b4b4b4;
 }
 
+#tasks, #btnNewTask {
+
+display: none;
+
+}
+
+
 /*
 .skull_select {
  margin: 0px;

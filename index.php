@@ -36,23 +36,27 @@
                     </nav>
                 </div>
             </div>
-        </div>
+        <div class="row">
         <div style="height: 3px; background-color: #4f4f4f;"></div>
         <div style="height: 3px; background-color: #858585;"></div>
         <div style="height: 3px; background-color: #b4b4b4;"></div>
-
+        </div>
         <!-- Projects Table -->
-        <div class="container-fluid">
+       
             <div class="row">
               <div id="controlPanel">
                 <form>
-                  <input id="btnNewProject" class="btn btn-success" type="button" value="New Project" />
+                  <input id="btnNewProject" class="btn btn-success" type="button" value="New Project" style="margin: 5px;" />
+                  <input id="btnNewTask" class="btn btn-success" type="button" value="Add Task" style="margin: 5px;"/>
                 </form>
               </div>
             </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="row">
+                <div style="height: 3px; background-color: #858585;"></div>
+                <div style="height: 2px; background-color: #000;"></div>
+                <div style="height: 3px; background-color: #858585;"></div>
+        </div>        
+            <div class="row" id="projects">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead style="background-color: #ddd">
@@ -64,19 +68,16 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody id="projects">
-                          <?php
-                          //include 'loadProjects.php';
-                          ?>
+                        <tbody>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="container-fluid row" style="background-color:#000000; ">
-              <input class="btn btn-success" type="button" value="Add Task" />
-            </div>
+       
+              
+            
 
-            <div class="row">
+            <div class="row" id="tasks">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead style="background-color: #ddd">
@@ -118,7 +119,8 @@
                                 <td class="VerticalALign Start"><input class="btn btn-success" type="button" value="Start" /></td>
                                 <td class="VerticalALign Remove"><input class="btn btn-warning" type="button" value="Remove"/></td>
                             </tr>
-
+                        </tbody>
+                        <tfoot>
                             <tr style="background-color: black; color: white;">
                                 <td></td>
                                 <td></td>
@@ -132,7 +134,7 @@
                                 <td></td>
                                 <td></td>
                             </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                 </div>
             </div>
