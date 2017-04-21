@@ -38,6 +38,7 @@ const createTaskRow = data => $("<tr></tr>")
 
 $(document).ready(() =>
 {
+  loadProjects();
   $("#btnNewProject").click(newProject);
 
   $(".fsSelect").select();
@@ -70,5 +71,35 @@ function newProject()
         projectnaam: name
       }
     });
+
+    loadProjects();
   }
+}
+
+function loadProjects()
+{
+  $.ajax({
+		type: 'GET',
+		url: 'loadProjects.php',
+
+		success: function(data)
+    {
+      var time;
+			$("#projects").html("");
+
+			$.each(data, function (key, data)
+      {
+        time = data.added.split(' ');
+
+        $("#projects").append(""+
+        "<tr>" +
+          "<td>" + data.id + "</td>" +
+          "<td>" + data.name + "</td>" +
+          "<td>" + time[0] + "</td>" +
+          "<td><input id='projectView" + data.id + "' class='btn btn-info' type='button' value='View' /></td>" +
+          "<td><input id='projectRem" + data.id + "' class='btn btn-danger' type='button' value='Remove' /></td>" +
+        "</tr>");
+			});
+		}
+	});
 }

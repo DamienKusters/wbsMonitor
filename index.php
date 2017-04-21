@@ -64,9 +64,9 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="projects">
                           <?php
-                          include 'loadProjects.php';
+                          //include 'loadProjects.php';
                           ?>
                         </tbody>
                     </table>

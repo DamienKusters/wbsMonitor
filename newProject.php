@@ -3,8 +3,7 @@ include("connect.php");
 
 $projectName = $_POST["projectnaam"];
 
-$sql = "INSERT INTO project (name) VALUES ('{$projectName}')";
-
+$sql = "INSERT INTO `wbs_monitor`.`project` (`id`, `name`, `added`) VALUES (NULL,'{$projectName}', CURRENT_TIMESTAMP)";
 if(mysqli_query($conn ,$sql))
 {
   echo "new project added!";
