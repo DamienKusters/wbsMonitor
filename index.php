@@ -42,7 +42,7 @@
         <div style="height: 3px; background-color: #b4b4b4;"></div>
         </div>
         <!-- Projects Table -->
-       
+
             <div class="row">
               <div id="controlPanel">
                 <form>
@@ -51,12 +51,13 @@
                 </form>
               </div>
             </div>
-        <div class="row">
-                <div style="height: 3px; background-color: #858585;"></div>
-                <div style="height: 2px; background-color: #000;"></div>
-                <div style="height: 3px; background-color: #858585;"></div>
-        </div>        
-            <div class="row" id="projects">
+            <div class="row">
+            <div style="height: 3px; background-color: #b4b4b4;"></div>
+            <div style="height: 3px; background-color: #858585;"></div>
+            <div style="height: 3px; background-color: #4f4f4f;"></div>
+            <div style="height: 15px; background-color: #000000;"></div>
+            </div>
+            <div class="row">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead style="background-color: #ddd">
@@ -68,14 +69,14 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="projects">
                         </tbody>
                     </table>
                 </div>
             </div>
-       
-              
-            
+
+
+
 
             <div class="row" id="tasks">
                 <div class="table-responsive">
