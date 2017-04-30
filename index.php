@@ -74,10 +74,6 @@
                     </table>
                 </div>
             </div>
-
-
-
-
             <div class="row" id="tasks">
                 <div class="table-responsive">
                     <table class="table table-striped">

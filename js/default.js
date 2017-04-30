@@ -41,6 +41,7 @@ $(document).ready(() =>
   loadProjects();
 
   $("#btnNewProject").click(newProject);
+  $('#projects').on("click", ".btnProjectRemove", removeProject);
 
   $(".fsSelect").select();
   $('#login-trigger').click(function()
@@ -96,10 +97,26 @@ function loadProjects()
           "<td>" + data.id + "</td>" +
           "<td>" + data.name + "</td>" +
           "<td>" + time[0] + "</td>" +
-          "<td><input id='projectView" + data.id + "' class='btn btn-info' type='button' value='View' /></td>" +
-          "<td><input id='projectRem" + data.id + "' class='btn btn-danger' type='button' value='Remove' /></td>" +
+          "<td><input id='btnProjectView" + data.id + "' class='btn btn-info btnProjectView' type='button' value='View' /></td>" +
+          "<td><input id='btnProjectRemove" + data.id + "' class='btn btn-danger btnProjectRemove' type='button' value='Remove' /></td>" +
         "</tr>");
       });
     }
   });
+}
+
+function removeProject()
+{
+  var id = $(this).attr('id').substring(16);
+  console.log(id);
+  $.ajax(
+  {
+     type: 'POST',
+     url:  'removeProject.php',
+     data:
+     {
+       projectId: id
+     }
+  });
+  loadProjects();
 }
