@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username   = "root";
-$password   = "usbw";
+$password   = "test";
 $database   = "wbs_monitor";
 
 // Create connection

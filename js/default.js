@@ -23,8 +23,8 @@
 </tr>*/
 
 
-const createTaskRow = data => $("<tr></tr>")
-    .append($("<td></td>").attr("class", "verticalAlign Number"))
+const createTaskRow = (rowId, rowData) => $("<tr></tr>").data("dbId", rowData.id)
+    .append($("<td></td>").attr("class", "verticalAlign Number").append(rowId))
     .append($("<td></td>").attr("class", "verticalAlign Task"))
     .append($("<td></td>").attr("class", "verticalAlign Predecessor"))
     .append($("<td></td>").attr("class", "verticalAlign Who"))
@@ -32,14 +32,33 @@ const createTaskRow = data => $("<tr></tr>")
     .append($("<td></td>").attr("class", "verticalAlign Plan"))
     .append($("<td></td>").attr("class", "verticalAlign Do"))
     .append($("<td></td>").attr("class", "verticalAlign Check"))
-    .append($("<td></td>").attr("class", "verticalAlign Number"))
-    .append($("<td></td>").attr("class", "verticalAlign Number"))
-    .append($("<td></td>").attr("class", "verticalAlign Number"));
+    .append($("<td></td>").attr("class", "verticalAlign Act"))
+    .append($("<td></td>").attr("class", "verticalAlign Start"))
+    .append($("<td></td>").attr("class", "verticalAlign Remove"));
 
-$(document).ready(() =>
-{
+const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", rowData.id)
+    .append($("<td></td>").append(rowIndex))
+    .append($("<td></td>").append(rowData.name))
+    .append($("<td></td>").append(rowData.added.split(' ')))
+    .append($("<td></td>").append($("<input />")
+      .attr({
+        "class" : "btn btn-info btnProjectView", 
+        "type" : "button",
+        "value" : "view"
+      })
+    ))
+    .append($("<td></td>").append($("<input />")
+      .attr({
+        "class" : "btn btn-danger btnProjectRemove", 
+        "type" : "button",
+        "value" : "remove"
+      })
+    ));
+       
+
+$(document).ready(() => {
+
   loadProjects();
-
   $("#btnNewProject").click(newProject);
   $('#projects').on("click", ".btnProjectRemove", removeProject);
 
@@ -56,9 +75,8 @@ $(document).ready(() =>
   });
 });
 
-function newProject()
-{
-  var name = prompt("Enter a name for the project");
+const newProject = () => {
+  const name = prompt("Enter a name for the project");
   if(name != '' && name != null)//Clicking OK when string is '' || Clicking cancel
   {
     //Before the ajax call we need to be sure the entered name doesn't exist yet,
@@ -71,52 +89,28 @@ function newProject()
        data:
        {
          projectnaam: name
-       }
+       },
+       success: loadProjects
     });
-    loadProjects();
   }
 }
 
-function loadProjects()
-{
-  $.ajax({
-    type: 'GET',
-    url: 'loadProjects.php',
+const  loadProjects = () => $.ajax({
+  type: 'GET',
+  url: 'loadProjects.php',
+  success: data => {
+    $("#projects").html("");
+    $.each(data, (projectRowIndex, projectRowData) => $("#projects").append(createProjectRow(projectRowIndex + 1, projectRowData)));
+  }
+});
 
-    success: function(data)
+
+const removeProject = e =>  $.ajax({
+    type: 'POST',
+    url:  'removeProject.php',
+    data:
     {
-      var time;
-      $("#projects").html("");
-
-      $.each(data, function (key, data)
-      {
-        time = data.added.split(' ');
-
-        $("#projects").append(""+
-        "<tr>" +
-          "<td>" + data.id + "</td>" +
-          "<td>" + data.name + "</td>" +
-          "<td>" + time[0] + "</td>" +
-          "<td><input id='btnProjectView" + data.id + "' class='btn btn-info btnProjectView' type='button' value='View' /></td>" +
-          "<td><input id='btnProjectRemove" + data.id + "' class='btn btn-danger btnProjectRemove' type='button' value='Remove' /></td>" +
-        "</tr>");
-      });
-    }
-  });
-}
-
-function removeProject()
-{
-  var id = $(this).attr('id').substring(16);
-  console.log(id);
-  $.ajax(
-  {
-     type: 'POST',
-     url:  'removeProject.php',
-     data:
-     {
-       projectId: id
-     }
-  });
-  loadProjects();
-}
+      projectId: $(e.target).closest("tr").data("dbId")
+    },
+    success : loadProjects
+});
