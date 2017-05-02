@@ -70,6 +70,10 @@ nav li #login-content , #register-content {
     width: 250px;
 }
 
+nav ul #login-content label {
+    display: block;
+}
+
 .nopaddingCol {
     padding: 0 !important;
     margin: 0 !important;

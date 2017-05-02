@@ -2,19 +2,19 @@
 const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", rowData.id)
     .append($("<td></td>").append(rowIndex))
     .append($("<td></td>").append(rowData.name))
-    .append($("<td></td>").append(rowData.added.split(' ')))
+    .append($("<td></td>").append(rowData.added.split(' ')[0]))
     .append($("<td></td>").append($("<input />")
       .attr({
         "class" : "btn btn-info btnProjectView", 
         "type" : "button",
-        "value" : "view"
+        "value" : "View"
       })
     ))
     .append($("<td></td>").append($("<input />")
       .attr({
         "class" : "btn btn-danger btnProjectRemove", 
         "type" : "button",
-        "value" : "remove"
+        "value" : "Remove"
       })
     ));
        
