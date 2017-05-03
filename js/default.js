@@ -1,3 +1,15 @@
+ const getTimestring = seconds => { 
+   const secondsLeft = seconds; 
+   const hours = Math.floor(secondsLeft / 3600); secondsLeft -= hours * 3600; 
+   const minutes = Math.floor(secondsLeft / 60);  secondsLeft -= minutes * 60; 
+   return `${hours}:${minutes}:${secondsLeft}`; 
+  };
+
+const getSeconds = timeString => { 
+  const timeSplit = timeString.split(":"); 
+  return parseFloat(timeSplit[0]) * 3600 + parseFloat(timeSplit[1]) * 60 + parseFloat(timeSplit[2]) 
+};
+
 
 const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", rowData.id)
     .append($("<td></td>").append(rowIndex))
