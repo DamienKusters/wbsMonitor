@@ -24,11 +24,11 @@
                                     <form class="form-inline" action="index.php" method="POST">
                                         <fieldset>
                                             <div class="form-group" style="margin-top: 5px;">
-                                                <label for="emailLogin">E-mail:</label> 
+                                                <label for="emailLogin">E-mail:</label>
                                                 <input style="margin-top: 10px; margin-bottom: 10px;" class="form-control" type="text" id="emailLogin" name="email">
                                             </div>
                                             <div class="form-group">
-                                                <label for="passwordLogin">Wachtwoord:</label> 
+                                                <label for="passwordLogin">Wachtwoord:</label>
                                                 <input style="margin-top: 10px;" class="form-control" type="password" id="passwordLogin" name="password">
                                             </div>
                                             <input type="submit" class="btn btn-danger" style="margin-top: 15px;" name="login" id="Login" value="Inloggen">
@@ -69,8 +69,8 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Date added</th>
-                                <th>View</th>
-                                <th>Remove</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody >
