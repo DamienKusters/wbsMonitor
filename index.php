@@ -69,8 +69,8 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Date added</th>
-                                <th></th>
-                                <th></th>
+                                <th>View</th>
+                                <th>Remove</th>
                             </tr>
                         </thead>
                         <tbody >
@@ -105,8 +105,8 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td style="text-align: center;">00:00:00</td>
-                                <td style="text-align: center;">00:00:00</td>
+                                <td id="timePlanned" style="text-align: center;"></td>
+                                <td id="timeDone" style="text-align: center;"></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

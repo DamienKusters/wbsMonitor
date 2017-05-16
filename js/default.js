@@ -1,7 +1,9 @@
  const getTimestring = seconds => { 
-   const secondsLeft = seconds; 
-   const hours = Math.floor(secondsLeft / 3600); secondsLeft -= hours * 3600; 
-   const minutes = Math.floor(secondsLeft / 60);  secondsLeft -= minutes * 60; 
+   let secondsLeft = seconds; 
+   let hours = Math.floor(secondsLeft / 3600); 
+   secondsLeft -= hours * 3600; 
+   let minutes = Math.floor(secondsLeft / 60);  
+   secondsLeft -= minutes * 60; 
    return `${hours}:${minutes}:${secondsLeft}`; 
   };
 
@@ -9,6 +11,21 @@ const getSeconds = timeString => {
   const timeSplit = timeString.split(":"); 
   return parseFloat(timeSplit[0]) * 3600 + parseFloat(timeSplit[1]) * 60 + parseFloat(timeSplit[2]) 
 };
+
+
+const updateTimer = () => {
+
+const totalPlannedTime = getTimestring(  [...$("#tasks .Plan input")].reduce((start, next) => start + getSeconds( $(next).val()  ), 0) );
+
+const totalDoneTime = getTimestring(  [...$("#tasks .Do input")].reduce((start, next) => start + getSeconds( $(next).val()  ), 0) );
+
+
+$("#timePlanned").text(totalPlannedTime);
+$("#timeDone").text(totalDoneTime);
+
+
+};
+
 
 
 const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", rowData.id)
@@ -29,9 +46,6 @@ const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", row
         "value" : "Remove"
       })
     ));
-       
-
-
 
 const newProject = () => {
   const name = prompt("Enter a name for the project");
@@ -163,6 +177,7 @@ const  loadTasks =  e => $.ajax({
     console.log(data);
     $.each(data, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRow(taskRowIndex + 1, taskRowData)));
     $(".fsSelect").select();
+    updateTimer();
   }
 
 });
