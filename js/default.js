@@ -1,10 +1,12 @@
+const  getprefixedTime = time => time < 10 ? `0${time}` : time; 
+ 
  const getTimestring = seconds => { 
    let secondsLeft = seconds; 
    let hours = Math.floor(secondsLeft / 3600); 
    secondsLeft -= hours * 3600; 
    let minutes = Math.floor(secondsLeft / 60);  
    secondsLeft -= minutes * 60; 
-   return `${hours}:${minutes}:${secondsLeft}`; 
+   return `${getprefixedTime(hours)}:${getprefixedTime(minutes)}:${getprefixedTime(secondsLeft)}`; 
   };
 
 const getSeconds = timeString => { 
@@ -183,7 +185,7 @@ const  loadTasks =  e => $.ajax({
 
 });
 
-const removeTask = e =>  console.error("unimplemented");
+const removeTask = e =>  console.error("unimplemented"); 
 
 
 
