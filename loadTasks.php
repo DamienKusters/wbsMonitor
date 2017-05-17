@@ -3,19 +3,41 @@ include("connect.php");
 
 $projectId = $_POST["projectId"];
 
-$sql = "SELECT * FROM task WHERE projectId = '$projectId'";
+$taskSql = "SELECT * FROM task WHERE projectId = '$projectId'";
 
-$result = mysqli_query($conn ,$sql);
+$taskResult = mysqli_query($conn ,$taskSql);
 
-$results = array();
+$taskResults = array();
 
-if(mysqli_num_rows($result) > 0)
+if(mysqli_num_rows($taskResult) > 0)
 {
-  while ($row = mysqli_fetch_assoc($result))
+  while ($taskRow = mysqli_fetch_assoc($taskResult))
   {
-		$results[] = $row;
+		$taskResults[] = $taskRow;
 	}
 }
+
+
+$memberSql = "SELECT user.username FROM user
+INNER JOIN project_member on  project_member.userId = user.id
+WHERE project_member.projectId =  '$projectId'";
+
+$memberResult = mysqli_query($conn ,$memberSql);
+
+$memberResults = array();
+
+if(mysqli_num_rows($memberResult) > 0)
+{
+  while ($memberRow = mysqli_fetch_assoc($memberResult))
+  {
+		$memberResults[] = $memberRow["username"];
+	}
+}
+
+
+$results = array("tasks" => $taskResults, "members" => $memberResults);
+
+
 
 header('Content-Type: application/json');
 echo json_encode($results);

@@ -174,8 +174,9 @@ const  loadTasks =  e => $.ajax({
     $("#tasks").show()
     $("#tasks tbody").html("");
     $("#projects").hide();
-    console.log(data);
-    $.each(data, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRow(taskRowIndex + 1, taskRowData)));
+    console.log(data.tasks);
+    $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRow(taskRowIndex + 1, taskRowData)));
+
     $(".fsSelect").select();
     updateTimer();
   }
@@ -183,8 +184,6 @@ const  loadTasks =  e => $.ajax({
 });
 
 const removeTask = e =>  console.error("unimplemented");
-
-
 
 
 
