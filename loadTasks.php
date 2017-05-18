@@ -3,7 +3,7 @@ include("connect.php");
 
 $projectId = $_POST["projectId"];
 
-$taskSql = "SELECT * FROM task WHERE projectId = '$projectId'";
+$taskSql = "SELECT task.*, user.username FROM task INNER JOIN user on user.id = task.userId WHERE projectId = '$projectId'";
 
 $taskResult = mysqli_query($conn ,$taskSql);
 

@@ -12,7 +12,7 @@ const  getprefixedTime = time => time < 10 ? `0${time}` : time;
 const getSeconds = timeString => { 
   const timeSplit = timeString.split(":"); 
   return parseFloat(timeSplit[0]) * 3600 + parseFloat(timeSplit[1]) * 60 + parseFloat(timeSplit[2]) 
-};
+};  
 
 
 const updateTimer = () => {
@@ -27,6 +27,7 @@ $("#timeDone").text(totalDoneTime);
 
 
 };
+
 
 
 
@@ -90,77 +91,80 @@ const removeProject = e =>  $.ajax({
 });
 
 
-const createTaskRow = (rowId, rowData) => $("<tr></tr>").data("dbId", rowData.id) //not done
-    .append($("<td></td>").attr("class", "verticalAlign Number").append(rowId))
-    .append($("<td></td>").attr("class", "verticalAlign Task").append($("<input />")
-      .attr({
-        "class" : "form-control", 
-        "type" : "text",
-      })
-      .val(rowData.name)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Predecessor").append($("<input />")
-      .attr({
-        "class" : "form-control", 
-        "type" : "number",
-      })
-      .val(rowData.predecessor)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Who").append($("<select></select>")
-      .attr("class", "fsSelect")
-      .data("width", 100)
-      //.val(rowData.userId)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Moscow").append($("<select></select>")
-      .attr("class", "fsSelect")
-      .data("width", 100)
-      .append(
-        $("<option></option>").text("must").attr("value", "must"),
-        $("<option></option>").text("could").attr("value", "could"),
-        $("<option></option>").text("should").attr("value", "should"),
-        $("<option></option>").text("won't").attr("value", "won't")
+const createTaskRow = function(rowId, rowData) { 
 
-      )
-      .val(rowData.moscow)
-      
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Plan").append($("<input />")
-      .attr({
-        "class" : "form-control", 
-        "type" : "text",
-      })
-      .val(rowData.plan)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Do").append($("<input />")
-      .attr({
-        "class" : "form-control", 
-        "type" : "text",
-      })
-      .val(rowData.do)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Check").append($("<textarea></textarea>")
-      .attr("class" , "form-control")
-      .val(rowData.check)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Act").append($("<textarea></textarea>")
-      .attr("class" , "form-control")
-      .val(rowData.act)
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Start").append($("<input />")
-      .attr({
-        "class" : "btn btn-success", 
-        "type" : "button",
-        "value" : "Start"
-      })
-    ))
-    .append($("<td></td>").attr("class", "verticalAlign Remove").append($("<input />")
-      .attr({
-        "class" : "btn btn-warning", 
-        "type" : "button",
-        "value" : "Remove"
-      })
-    ));
+  return $("<tr></tr>").data("dbId", rowData.id) //not done
+      .append($("<td></td>").attr("class", "verticalAlign Number").append(rowId))
+      .append($("<td></td>").attr("class", "verticalAlign Task").append($("<input />")
+        .attr({
+          "class" : "form-control", 
+          "type" : "text",
+        })
+        .val(rowData.name)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Predecessor").append($("<input />")
+        .attr({
+          "class" : "form-control", 
+          "type" : "number",
+        })
+        .val(rowData.predecessor)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Who").append($("<select></select>")
+        .attr("class", "fsSelect")
+        .data("width", 100)
+        .append(this.members.map(x => `<option>${x}</option>`).reduce((prev, next) => prev + next))
+        .val(rowData.username)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Moscow").append($("<select></select>")
+        .attr("class", "fsSelect")
+        .data("width", 100)
+        .append(
+          $("<option></option>").text("must").attr("value", "must"),
+          $("<option></option>").text("could").attr("value", "could"),
+          $("<option></option>").text("should").attr("value", "should"),
+          $("<option></option>").text("won't").attr("value", "won't")
 
+        )
+        .val(rowData.moscow)
+        
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Plan").append($("<input />")
+        .attr({
+          "class" : "form-control", 
+          "type" : "text",
+        })
+        .val(rowData.plan)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Do").append($("<input />")
+        .attr({
+          "class" : "form-control", 
+          "type" : "text",
+        })
+        .val(rowData.do)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Check").append($("<textarea></textarea>")
+        .attr("class" , "form-control")
+        .val(rowData.check)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Act").append($("<textarea></textarea>")
+        .attr("class" , "form-control")
+        .val(rowData.act)
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Start").append($("<input />")
+        .attr({
+          "class" : "btn btn-success", 
+          "type" : "button",
+          "value" : "Start"
+        })
+      ))
+      .append($("<td></td>").attr("class", "verticalAlign Remove").append($("<input />")
+        .attr({
+          "class" : "btn btn-warning", 
+          "type" : "button",
+          "value" : "Remove"
+        })
+      ));
+};
 const newTask = () => console.error("unimplemented");
 
 const  loadTasks =  e => $.ajax({
@@ -177,7 +181,10 @@ const  loadTasks =  e => $.ajax({
     $("#tasks tbody").html("");
     $("#projects").hide();
     console.log(data.tasks);
-    $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRow(taskRowIndex + 1, taskRowData)));
+    
+    const createTaskRowBound = createTaskRow.bind(data);
+
+    $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
 
     $(".fsSelect").select();
     updateTimer();
