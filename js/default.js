@@ -91,9 +91,7 @@ const removeProject = e =>  $.ajax({
 });
 
 
-const createTaskRow = function(users, rowId, rowData) { 
-
-  return $("<tr></tr>").data("dbId", rowData.id) //not done
+const createTaskRow = (users, rowId, rowData) => $("<tr></tr>").data("dbId", rowData.id) //not done
       .append($("<td></td>").attr("class", "verticalAlign Number").append(rowId))
       .append($("<td></td>").attr("class", "verticalAlign Task").append($("<input />")
         .attr({
@@ -164,7 +162,7 @@ const createTaskRow = function(users, rowId, rowData) {
           "value" : "Remove"
         })
       ));
-};
+
 const newTask = () => console.error("unimplemented");
 
 const  loadTasks =  e => $.ajax({
