@@ -91,7 +91,7 @@ const removeProject = e =>  $.ajax({
 });
 
 
-const createTaskRow = function(rowId, rowData) { 
+const createTaskRow = function(users, rowId, rowData) { 
 
   return $("<tr></tr>").data("dbId", rowData.id) //not done
       .append($("<td></td>").attr("class", "verticalAlign Number").append(rowId))
@@ -112,7 +112,7 @@ const createTaskRow = function(rowId, rowData) {
       .append($("<td></td>").attr("class", "verticalAlign Who").append($("<select></select>")
         .attr("class", "fsSelect")
         .data("width", 100)
-        .append(this.members.map(x => `<option>${x}</option>`).reduce((prev, next) => prev + next))
+        .append(users.map(x => `<option>${x}</option>`).reduce((prev, next) => prev + next))
         .val(rowData.username)
       ))
       .append($("<td></td>").attr("class", "verticalAlign Moscow").append($("<select></select>")
@@ -182,7 +182,7 @@ const  loadTasks =  e => $.ajax({
     $("#projects").hide();
     console.log(data.tasks);
     
-    const createTaskRowBound = createTaskRow.bind(data);
+    const createTaskRowBound = createTaskRow.bind(null, data.users);
 
     $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
 

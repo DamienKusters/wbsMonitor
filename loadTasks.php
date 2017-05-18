@@ -35,7 +35,7 @@ if(mysqli_num_rows($memberResult) > 0)
 }
 
 
-$results = array("tasks" => $taskResults, "members" => $memberResults);
+$results = array("tasks" => $taskResults, "users" => $memberResults);
 
 
 
