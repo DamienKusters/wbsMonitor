@@ -1,12 +1,12 @@
 <?php
 include("connect.php");
 
-$projectId = $_POST["projectId"];
+$projectId = $_POST["taskId"];
 
-$sql = "DELETE FROM project WHERE id='$projectId'";
+$sql = "DELETE FROM project WHERE id='$taskId'";
 if(mysqli_query($conn ,$sql))
 {
-  echo "Project removed!";
+  echo "task removed!";
 }
 else
 {
