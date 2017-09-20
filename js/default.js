@@ -163,7 +163,26 @@ const createTaskRow = (users, rowId, rowData) => $("<tr></tr>").data("dbId", row
         })
       ));
 
-const newTask = () => console.error("unimplemented");
+const newTask = () => {
+  const name = prompt("Enter a name for the project");
+  if(name != '' && name != null)//Clicking OK when string is '' || Clicking cancel
+  {
+    //Before the ajax call we need to be sure the entered name doesn't exist yet,
+    //Protect the input from sql injection
+    //and show a dialog (or show a div) saying the project has been added OR not
+    $.ajax(
+    {
+       type: 'POST',
+       url:  'newTask.php',
+       data:
+       {
+          projectid: $(e.target).closest("tr").data("dbId"),
+          tasknaam: name
+       },
+       success: loadProjects
+    });
+  }
+}
 
 const  loadTasks =  e => $.ajax({
 
