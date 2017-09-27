@@ -176,8 +176,8 @@ const newTask = () => {
        url:  'newTask.php',
        data:
        {
-          projectid: $(e.target).closest("tr").data("dbId"),
-          tasknaam: name
+          projectId: $(e.target).closest("tr").data("dbId"),
+          taskName: name
        },
        success: loadProjects
     });
@@ -192,10 +192,14 @@ const loadTasks = e => $.ajax({
     },
     success: data =>
     {
+        $("#lblProjectTitle").html("");
+        $("#lblProjectTitle").append("Tablename");
         $("#tasks").show();
         $("#tasks tbody").html("");
         $("#projects").hide();
         $("#btnNewProject").css("display", "none");
+        $("#btnShowProjects").css("display", "block");
+        $("#lblProjectTitle").css("display", "block")
         console.log(data.tasks);
 
         const createTaskRowBound = createTaskRow.bind(null, data.users);
@@ -217,6 +221,9 @@ const removeTask = e =>  console.error("unimplemented");
 
 $(document).ready(() => {
     
+    $("#lblProjectTitle").css("display", "none");
+    $("#btnShowProjects").css("display", "none");
+    
   loadProjects();
   $("#btnNewProject").click(newProject);
     $('#projects').on("click", ".btnProjectRemove", e =>
@@ -226,7 +233,17 @@ $(document).ready(() => {
             removeProject(e);
     });
     
-  $('#projects').on("click", ".btnProjectView", loadTasks);
+    $('#projects').on("click", ".btnProjectView", loadTasks);
+    $('#btnShowProjects').click(function()
+    {
+        $("#tasks").hide();
+        $("#projects tbody").html("");
+        $("#projects").show();
+        $("#btnNewProject").css("display", "block");
+        $("#btnShowProjects").css("display", "none");
+        $("#lblProjectTitle").css("display", "none")
+        loadProjects();
+    });
 
 
   $('#login-trigger').click(function()
