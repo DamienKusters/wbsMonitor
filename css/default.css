@@ -101,6 +101,7 @@ textarea {
 #controlPanel
 {
   background-color: #b4b4b4;
+    margin: 0;
 }
 
 #tasks, #btnNewTask {
@@ -111,4 +112,9 @@ display: none;
 
 .skull_select {
  margin: 0px;
+}
+
+h2
+{
+    margin: 0;
 }

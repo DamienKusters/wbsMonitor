@@ -51,8 +51,9 @@
             <div class="row">
               <div id="controlPanel">
                 <form>
-                  <input id="btnNewProject" class="btn btn-success" type="button" value="New Project" style="margin: 5px;" />
-                  <input id="btnNewTask" class="btn btn-success" type="button" value="Add Task" style="margin: 5px;"/>
+                    <h2 id="lblProjectTitle">Project name here...</h2>
+                    <input id="btnNewProject" class="btn btn-success" type="button" value="New Project" style="margin: 5px;" />
+                    <input id="btnShowProjects" class="btn btn-general" type="button" value="Show Projects" style="margin: 5px;" />
                 </form>
               </div>
             </div>
