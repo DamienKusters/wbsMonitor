@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username   = "root";
-$password   = "test";
-$database   = "wbs_monitor";
+$password   = "usbw";
+$database   = "wbs";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);

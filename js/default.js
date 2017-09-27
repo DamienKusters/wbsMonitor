@@ -1,4 +1,4 @@
-const  getprefixedTime = time => time < 10 ? `0${time}` : time; 
+const  getprefixedTime = time => time < 10 ? `0${time}` : time;
  
  const getTimestring = seconds => { 
    let secondsLeft = seconds; 
@@ -183,30 +183,32 @@ const newTask = () => {
     });
   }
 }
+const loadTasks = e => $.ajax({
+    type : "POST",
+    url : "loadTasks.php",
+    data : 
+    {
+        projectId: $(e.target).closest("tr").data("dbId")
+    },
+    success: data =>
+    {
+        $("#tasks").show();
+        $("#tasks tbody").html("");
+        $("#projects").hide();
+        $("#btnNewProject").css("display", "none");
+        console.log(data.tasks);
 
-const  loadTasks =  e => $.ajax({
+        const createTaskRowBound = createTaskRow.bind(null, data.users);
 
-  type : "POST",
-  url : "loadTasks.php",
-  data : 
-  {
-    projectId: $(e.target).closest("tr").data("dbId")
-  },
+        $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
 
-  success: data => {
-    $("#tasks").show()
-    $("#tasks tbody").html("");
-    $("#projects").hide();
-    console.log(data.tasks);
-    
-    const createTaskRowBound = createTaskRow.bind(null, data.users);
-
-    $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
-
-    $(".fsSelect").select();
-    updateTimer();
-  }
-
+        $(".fsSelect").select();
+        updateTimer();
+    },
+    error: data =>
+    {
+        console.log("Error in loading Tasks: " + data);
+    }
 });
 
 const removeTask = e =>  console.error("unimplemented"); 
@@ -214,10 +216,16 @@ const removeTask = e =>  console.error("unimplemented");
 
 
 $(document).ready(() => {
-
+    
   loadProjects();
   $("#btnNewProject").click(newProject);
-  $('#projects').on("click", ".btnProjectRemove", removeProject);
+    $('#projects').on("click", ".btnProjectRemove", e =>
+    {
+        e.preventDefault();
+        if (window.confirm("Are you sure you want to remove this item?"))
+            removeProject(e);
+    });
+    
   $('#projects').on("click", ".btnProjectView", loadTasks);
 
 
