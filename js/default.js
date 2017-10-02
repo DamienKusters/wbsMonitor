@@ -234,7 +234,7 @@ $(document).ready(() => {
     });
     
     $('#projects').on("click", ".btnProjectView", loadTasks);
-    $('#btnShowProjects').click(function()
+    $('#btnShowProjects').click(e =>
     {
         $("#tasks").hide();
         $("#projects tbody").html("");
@@ -246,7 +246,7 @@ $(document).ready(() => {
     });
 
 
-  $('#login-trigger').click(function()
+  $('#login-trigger').click(e =>
   {
       $(this).next('#login-content').slideToggle();
       $(this).toggleClass('active');

@@ -94,8 +94,8 @@
                                 <th>Do</th>
                                 <th>Check</th>
                                 <th>Act</th>
-                                <th>start</th>
-                                <th>remove</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
