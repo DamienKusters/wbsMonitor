@@ -1,35 +1,52 @@
-const  getprefixedTime = time => time < 10 ? `0${time}` : time;
- 
- const getTimestring = seconds => { 
-   let secondsLeft = seconds; 
-   let hours = Math.floor(secondsLeft / 3600); 
-   secondsLeft -= hours * 3600; 
-   let minutes = Math.floor(secondsLeft / 60);  
-   secondsLeft -= minutes * 60; 
-   return `${getprefixedTime(hours)}:${getprefixedTime(minutes)}:${getprefixedTime(secondsLeft)}`; 
-  };
+var timerObjectKusD;
+var getTime = 0;
 
-const getSeconds = timeString => { 
-  const timeSplit = timeString.split(":"); 
-  return parseFloat(timeSplit[0]) * 3600 + parseFloat(timeSplit[1]) * 60 + parseFloat(timeSplit[2]) 
-};  
-
-
-const updateTimer = () => {
-
-const totalPlannedTime = getTimestring(  [...$("#tasks .Plan input")].reduce((start, next) => start + getSeconds( $(next).val()  ), 0) );
-
-const totalDoneTime = getTimestring(  [...$("#tasks .Do input")].reduce((start, next) => start + getSeconds( $(next).val()  ), 0) );
-
-
-$("#timePlanned").text(totalPlannedTime);
-$("#timeDone").text(totalDoneTime);
-
-
+const convertToSeconds = time =>
+{
+	//Split a string into an array of substrings
+	var time_split = time.split(':');
+    var seconds = parseInt(time_split[0]) * 3600 + parseInt(time_split[1]) * 60 + parseInt(time_split[2]);
+   	return seconds;
 };
 
+const timerSetupKusD = e =>
+{
+    console.log("Entered timerSetup");
+    
+    console.log($("#tasks").find("tbody").find(".js-start-timer").css("display","visible"));
+    $("#tasks").find(".js-pause-timer").css("display","none");
+    $("#tasks").find(".js-resume-timer").css("display","none");
+    
+	$(".js-start-timer").on("click", function()
+    {
+        console.log("Pressed Start");
+        $(this).css("display","none");
+        $(this).closest("tr").find(".js-pause-timer").css("display","block");
+        
+        timerObjectKusD = $(this).closest("tr").find(".js-task-do");
+        getTime = convertToSeconds($(this).closest("tr").find(".js-task-do").val());
 
-
+        timerObjectKusD.timer( { "format" : "%H:%M:%S", "seconds" : getTime } );
+	});
+	$(".js-pause-timer").on("click", function()
+    {
+        console.log("Pressed Pause");
+        $(this).css("display","none");
+        $(this).closest("tr").find(".js-resume-timer").css("display","block");
+        
+        timerObjectKusD = $(this).closest("tr").find(".js-task-do");
+		timerObjectKusD.timer("pause");
+	});
+	$(".js-resume-timer").on("click", function()
+    {
+        console.log("Pressed Resume");
+        $(this).css("display","none");
+        $(this).closest("tr").find(".js-pause-timer").css("display","block");
+        
+        timerObjectKusD = $(this).closest("tr").find(".js-task-do");
+		timerObjectKusD.timer("resume");
+	});
+};
 
 const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", rowData.id)
     .append($("<td></td>").append(rowIndex))
@@ -135,7 +152,7 @@ const createTaskRow = (users, rowId, rowData) => $("<tr></tr>").data("dbId", row
       ))
       .append($("<td></td>").attr("class", "verticalAlign Do").append($("<input />")
         .attr({
-          "class" : "form-control", 
+          "class" : "form-control js-task-do", 
           "type" : "text",
         })
         .val(rowData.do)
@@ -148,12 +165,9 @@ const createTaskRow = (users, rowId, rowData) => $("<tr></tr>").data("dbId", row
         .attr("class" , "form-control")
         .val(rowData.act)
       ))
-      .append($("<td></td>").attr("class", "verticalAlign Start").append($("<input />")
-        .attr({
-          "class" : "btn btn-success", 
-          "type" : "button",
-          "value" : "Start"
-        })
+      .append($("<td><input class='btn btn-success js-start-timer' type='button' value='Start'></input>" +
+                "<input class='btn btn-success js-pause-timer' type='button' value='Pause'></input>" +
+                "<input class='btn btn-success js-resume-timer' type='button' value='Resume'></input></td>"
       ))
       .append($("<td></td>").attr("class", "verticalAlign Remove").append($("<input />")
         .attr({
@@ -207,7 +221,7 @@ const loadTasks = e => $.ajax({
         $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
 
         $(".fsSelect").select();
-        updateTimer();
+        timerSetupKusD();
     },
     error: data =>
     {
@@ -215,11 +229,11 @@ const loadTasks = e => $.ajax({
     }
 });
 
-const removeTask = e =>  console.error("unimplemented"); 
-
-
+const removeTask = e =>  console.error("unimplemented");
 
 $(document).ready(() => {
+    
+    
     
     $("#lblProjectTitle").css("display", "none");
     $("#btnShowProjects").css("display", "none");

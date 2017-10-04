@@ -123,5 +123,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="css/jquery-select/js/jquery.select.js"></script>
         <script src="js/default.js"></script>
+        <!-- Timer plugin -->
+    <script src="js/timer.jquery.min.js"></script>
     </body>
 </html>
