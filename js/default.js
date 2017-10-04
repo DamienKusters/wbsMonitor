@@ -165,13 +165,13 @@ const createTaskRow = (users, rowId, rowData) => $("<tr></tr>").data("dbId", row
         .attr("class" , "form-control")
         .val(rowData.act)
       ))
-      .append($("<td><input class='btn btn-success js-start-timer' type='button' value='Start'></input>" +
-                "<input class='btn btn-success js-pause-timer' type='button' value='Pause'></input>" +
-                "<input class='btn btn-success js-resume-timer' type='button' value='Resume'></input></td>"
+      .append($("<td><input class='btn btn-info js-start-timer' type='button' value='>'></input>" +
+                "<input class='btn btn-warning js-pause-timer' type='button' value='||'></input>" +
+                "<input class='btn btn-info js-resume-timer' type='button' value='>'></input></td>"
       ))
       .append($("<td></td>").attr("class", "verticalAlign Remove").append($("<input />")
         .attr({
-          "class" : "btn btn-warning", 
+          "class" : "btn btn-danger", 
           "type" : "button",
           "value" : "Remove"
         })
