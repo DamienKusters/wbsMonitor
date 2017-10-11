@@ -11,9 +11,6 @@ const convertToSeconds = time =>
 
 const timerSetupKusD = e =>
 {
-    console.log("Entered timerSetup");
-    
-    console.log($("#tasks").find("tbody").find(".js-start-timer").css("display","visible"));
     $("#tasks").find(".js-pause-timer").css("display","none");
     $("#tasks").find(".js-resume-timer").css("display","none");
     
@@ -77,7 +74,7 @@ const newProject = () => {
     $.ajax(
     {
        type: 'POST',
-       url:  'newProject.php',
+       url:  'functions/newProject.php',
        data:
        {
          projectnaam: name
@@ -89,7 +86,7 @@ const newProject = () => {
 
 const  loadProjects = () => $.ajax({
   type: 'GET',
-  url: 'loadProjects.php',
+  url: 'functions/loadProjects.php',
   success: data => {
     $("#projects tbody").html("");
     $.each(data, (projectRowIndex, projectRowData) => $("#projects tbody").append(createProjectRow(projectRowIndex + 1, projectRowData)));
@@ -99,7 +96,7 @@ const  loadProjects = () => $.ajax({
 
 const removeProject = e =>  $.ajax({
     type: 'POST',
-    url:  'removeProject.php',
+    url:  'functions/removeProject.php',
     data:
     {
       projectId: $(e.target).closest("tr").data("dbId")
@@ -187,7 +184,7 @@ const newTask = () => {
     $.ajax(
     {
        type: 'POST',
-       url:  'newTask.php',
+       url:  'functions/newTask.php',
        data:
        {
           projectId: $(e.target).closest("tr").data("dbId"),
@@ -197,35 +194,61 @@ const newTask = () => {
     });
   }
 }
-const loadTasks = e => $.ajax({
+const loadTasks = e => {
+    $.ajax({
+        type : "POST",
+        url : "functions/loadTasks.php",
+        data : 
+        {
+            projectId: $(e.target).closest("tr").data("dbId")
+        },
+        success: data =>
+        {
+            $("#lblProjectTitle").html("");
+            $("#lblProjectTitle").append("Tablename");
+            $("#tasks").show();
+            $("#tasks tbody").html("");
+            $("#projects").hide();
+            $("#btnNewProject").css("display", "none");
+            $("#btnShowProjects").css("display", "block");
+            $("#lblProjectTitle").css("display", "block");
+
+            const createTaskRowBound = createTaskRow.bind(null, data.users);
+
+            $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
+
+            $(".fsSelect").select();
+            timerSetupKusD();
+        },
+        error: data =>
+        {
+            console.log("Error in loading Tasks: " + data);
+        }
+    });
+    
+    $("#timePlanned").html("");
+    $("#timePlanned").append(getTotalPlannedTime());
+    
+    $("#timeDone").html("");
+    $("#timeDone").append("00:00:00");
+}
+
+const getTotalPlannedTime = () =>
+$.ajax({
     type : "POST",
-    url : "loadTasks.php",
+    url : "functions/getTotalPlannedTime.php",
     data : 
     {
-        projectId: $(e.target).closest("tr").data("dbId")
+        projectId: 1
     },
     success: data =>
     {
-        $("#lblProjectTitle").html("");
-        $("#lblProjectTitle").append("Tablename");
-        $("#tasks").show();
-        $("#tasks tbody").html("");
-        $("#projects").hide();
-        $("#btnNewProject").css("display", "none");
-        $("#btnShowProjects").css("display", "block");
-        $("#lblProjectTitle").css("display", "block")
-        console.log(data.tasks);
-
-        const createTaskRowBound = createTaskRow.bind(null, data.users);
-
-        $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
-
-        $(".fsSelect").select();
-        timerSetupKusD();
+        console.log(data);
+        return data;
     },
     error: data =>
     {
-        console.log("Error in loading Tasks: " + data);
+        console.log(data);
     }
 });
 
@@ -233,13 +256,11 @@ const removeTask = e =>  console.error("unimplemented");
 
 $(document).ready(() => {
     
-    
-    
     $("#lblProjectTitle").css("display", "none");
     $("#btnShowProjects").css("display", "none");
     
-  loadProjects();
-  $("#btnNewProject").click(newProject);
+    loadProjects();
+    $("#btnNewProject").click(newProject);
     $('#projects').on("click", ".btnProjectRemove", e =>
     {
         e.preventDefault();
@@ -258,18 +279,16 @@ $(document).ready(() => {
         $("#lblProjectTitle").css("display", "none")
         loadProjects();
     });
-
-
-  $('#login-trigger').click(e =>
-  {
-      $(this).next('#login-content').slideToggle();
-      $(this).toggleClass('active');
-      if ($(this).hasClass('active')){
-          $(this).find('span').html('&#x25B2;');
-      }else{
-          $(this).find('span').html('&#x25BC;');
-      }
-  });
+    
+    $('#login-trigger').click(e =>
+    {
+        $(this).next('#login-content').slideToggle();
+        $(this).toggleClass('active');
+        if ($(this).hasClass('active'))
+            $(this).find('span').html('&#x25B2;');
+        else
+            $(this).find('span').html('&#x25BC;');
+    });
 });
 
 /*
