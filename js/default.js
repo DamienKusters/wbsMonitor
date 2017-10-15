@@ -256,6 +256,17 @@ const removeTask = e =>  console.error("unimplemented");
 
 $(document).ready(() => {
     
+	/*
+	If you're reading this, that means you finally started working on the WBS again.
+	C O N G R A T S !
+	For the last weeks I worked on it with no assistance. [enter sadface here]
+	Porobic recommended to stop working on this project and start from scratch, as it was going nowhere.
+	So I started working on my own WBS, you have to figure it out without me.
+
+	Gütentag,
+	Signed by Damien
+	*/
+
     $("#lblProjectTitle").css("display", "none");
     $("#btnShowProjects").css("display", "none");
     
