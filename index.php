@@ -6,64 +6,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/jquery-select/css/jquery.select.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="css/default.css" rel="stylesheet">
         <link rel="icon" href="img/logo.png" type="image/png" />
     </head>
     <body>
     <!-- Header  -->
-        <div class="container-fluid">
-            <div class="row HeaderRow">
-                <div class="col-md-5 col-xs-12">
-                    <img class="img-responsive logo" src="img/logo2.png">
-                </div>
-                <div class="col-md-7 col-xs-0">
-                    <nav>
-                        <ul class="navul">
-                            <li id="login">
-                                <a id="login-trigger"><label style="font-weight:normal;">Inloggen ▼</label></a>
-                                <div id="login-content">
-                                    <form class="form-inline" action="index.php" method="POST">
-                                        <fieldset>
-                                            <div class="form-group" style="margin-top: 5px;">
-                                                <label for="emailLogin">E-mail:</label>
-                                                <input style="margin-top: 10px; margin-bottom: 10px;" class="form-control" type="text" id="emailLogin" name="email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="passwordLogin">Wachtwoord:</label>
-                                                <input style="margin-top: 10px;" class="form-control" type="password" id="passwordLogin" name="password">
-                                            </div>
-                                            <input type="submit" class="btn btn-danger" style="margin-top: 15px;" name="login" id="Login" value="Inloggen">
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            </li>
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper black">
+                        <a href="#" class="left brand-logo white-text">WBS</a>
+                        <ul class="right" style="margin-top: 0px!important; margin-right: 0px!important">
+                            <form method="post" action="index.php">
+                                <li><a id="Login" class="waves-effect waves-light btn modal-trigger" href="#modal1" style="color: white; background-color: black; border: 1px solid white;">Login</a></li>
+                                <!--<li><a id="btnLogout" class="waves-effect waves-light btn" style="color: white; background-color: black; border: 1px solid white;">logout</a></li>
+                                <input type="hidden" name="logout" />-->
+                            </form>
                         </ul>
-                    </nav>
+                    </div>
+                </nav>
+            </div>
+            <!-- Modal Structure -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <form method="post" action="index.php">
+                        <span class="close">&times;</span>
+                        <p class="text">Username</p><input name="username" class="text" type="text" />
+                        <p class="text">Password</p><input name="password" class="text" type="password" />
+                        <a id="submit" class="waves-effect waves-light btn" style=" float:right; color: black; background-color: white;">Login</a>
+                        <br />
+                    </form>
                 </div>
             </div>
-        <div class="row">
-        <div style="height: 3px; background-color: #4f4f4f;"></div>
-        <div style="height: 3px; background-color: #858585;"></div>
-        <div style="height: 3px; background-color: #b4b4b4;"></div>
-        </div>
-        <!-- Projects Table -->
-
-            <div class="row">
+            <!-- Projects Table -->
+            <div class="container-fluid">
+            <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
               <div id="controlPanel">
                 <form>
                     <h2 id="lblProjectTitle">Project name here...</h2>
-                    <input id="btnNewProject" class="btn btn-success" type="button" value="New Project" style="margin: 5px;" />
-                    <input id="btnShowProjects" class="btn btn-general" type="button" value="Show Projects" style="margin: 5px;" />
+                    <input id="btnNewProject" class="btn btn-success" type="button" value="New Project"/>
+                    <input id="btnShowProjects" class="btn btn-success" type="button" value="Show Projects"/>
                 </form>
               </div>
             </div>
-            <div class="row">
-            <div style="height: 3px; background-color: #b4b4b4;"></div>
-            <div style="height: 3px; background-color: #858585;"></div>
-            <div style="height: 3px; background-color: #4f4f4f;"></div>
-            <div style="height: 15px; background-color: #000000;"></div>
-            </div>
-            <div class="row">
+            <div class="row" style="margin: 0px!important;">
                 <div class="table-responsive">
                     <table id="projects" class="table table-striped">
                         <thead style="background-color: #ddd">
@@ -80,7 +66,7 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin: 0px!important;">
                 <div class="table-responsive">
                     <table id="tasks"  class="table table-striped">
                         <thead style="background-color: #ddd">
@@ -100,8 +86,8 @@
                         </thead>
                         <tbody>
                         </tbody>
-                        <tfoot>
-                            <tr style="background-color: black; color: white;">
+                        <tfoot style="background-color: black;">
+                            <tr style="background-color: black; color: white; border-top: none;">
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -119,6 +105,7 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="css/jquery-select/js/jquery.select.js"></script>

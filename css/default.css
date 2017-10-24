@@ -100,7 +100,7 @@ textarea {
 
 #controlPanel
 {
-  background-color: #b4b4b4;
+    /*background-color: #b4b4b4;*/
     margin: 0;
 }
 
@@ -117,4 +117,8 @@ display: none;
 h2
 {
     margin: 0;
+}
+
+.modal{
+    
 }
