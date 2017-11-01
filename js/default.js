@@ -212,7 +212,7 @@ const loadTasks = e => {
             $("#btnNewProject").css("display", "none");
             $("#btnShowProjects").css("display", "block");
             $("#lblProjectTitle").css("display", "block");
-            $("#lblProjecs").css("display", "none");
+            $("#lblProjects").css("display", "none");
 
             const createTaskRowBound = createTaskRow.bind(null, data.users);
 
@@ -304,7 +304,8 @@ $(document).ready(() => {
         $("#projects").show();
         $("#btnNewProject").css("display", "block");
         $("#btnShowProjects").css("display", "none");
-        $("#lblProjectTitle").css("display", "none")
+        $("#lblProjectTitle").css("display", "none");
+        $("#lblProjects").css("display", "block");
         loadProjects();
     });
 });
