@@ -15,9 +15,11 @@
                 <nav>
                     <div class="nav-wrapper black">
                         <a href="#" class="left brand-logo white-text">WBS</a>
-                        <ul class="right" style="margin-top: 0px!important; margin-right: 0px!important">
+                        <ul class="right buttoncenter">
                             <form method="post" action="index.php">
-                                <li><a id="Login" class="waves-effect waves-light btn modal-trigger" href="#modal1" style="color: white; background-color: black; border: 1px solid white;">Login</a></li>
+                                <li>
+                                    <a id="Login" class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>
+                                </li>
                                 <!--<li><a id="btnLogout" class="waves-effect waves-light btn" style="color: white; background-color: black; border: 1px solid white;">logout</a></li>
                                 <input type="hidden" name="logout" />-->
                             </form>
@@ -32,25 +34,25 @@
                         <span class="close">&times;</span>
                         <p class="text">Username</p><input name="username" class="text" type="text" />
                         <p class="text">Password</p><input name="password" class="text" type="password" />
-                        <a id="submit" class="waves-effect waves-light btn" style="margin-bottom: 10px; float:right; color: black; background-color: white;">Login</a>
+                        <a id="submit" class="waves-effect waves-light btn">Login</a>
                     </form>
                 </div>
             </div>
             <!-- Projects Table -->
             <div class="container-fluid">
-            <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
+            <div class="row buttonrow">
               <div id="controlPanel">
                 <form>
                     <h2 id="lblProjectTitle">Project name here...</h2>
-                    <input id="btnNewProject" class="btn btn-success" type="button" style="margin-left: 10px;" value="New Project"/>
-                    <input id="btnShowProjects" class="btn btn-success" type="button" style="margin-left: 10px;" value="Show Projects"/>
+                    <input id="btnNewProject" class="btn btn-success" type="button" value="New Project"/>
+                    <input id="btnShowProjects" class="btn btn-success" type="button" value="Show Projects"/>
                 </form>
               </div>
             </div>
-            <div class="row" style="margin: 0px!important;">
+            <div class="row rowmargin">
                 <div class="table-responsive">
                     <table id="projects" class="table table-striped">
-                        <thead style="background-color: #ddd">
+                        <thead class="tablehead">
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
@@ -64,10 +66,10 @@
                     </table>
                 </div>
             </div>
-            <div class="row" style="margin: 0px!important;">
+            <div class="row rowmargin"">
                 <div class="table-responsive">
                     <table id="tasks"  class="table table-striped">
-                        <thead style="background-color: #ddd">
+                        <thead class="tablehead">
                             <tr>
                                 <th>ID</th>
                                 <th>Task</th>
@@ -84,15 +86,15 @@
                         </thead>
                         <tbody>
                         </tbody>
-                        <tfoot style="background-color: black;">
-                            <tr style="background-color: black; color: white; border-top: none;">
+                        <tfoot class="black">
+                            <tr class="bottomrow">
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td id="timePlanned" style="text-align: center;"></td>
-                                <td id="timeDone" style="text-align: center;"></td>
+                                <td id="timePlanned"></td>
+                                <td id="timeDone"></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

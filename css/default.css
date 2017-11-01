@@ -122,3 +122,56 @@ h2
 .modal{
     z-index: 10;
 }
+
+.rowmargin{
+    margin: 0px!important;
+}
+
+.tablehead{
+    background-color: #ddd;
+}
+
+.buttoncenter{
+    margin-top: 0px!important; 
+    margin-right: 0px!important;
+}
+
+#Login{
+    color: white; 
+    background-color: black; 
+    border: 1px solid white;
+}
+
+#submit{
+    margin-bottom: 10px; 
+    float:right; 
+    color: black; 
+    background-color: white;
+}
+
+.buttonrow{
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+#btnNewProject{
+    margin-left: 10px;
+}
+
+#btnShowProjects{
+    margin-left: 10px;
+}
+
+.bottomrow{
+    background-color: black; 
+    color: white; 
+    border-top: none;
+}
+
+#timePlanned{
+    text-align: center;
+}
+
+#timeDone{
+    text-align: center;
+}
