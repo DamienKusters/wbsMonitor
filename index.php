@@ -66,7 +66,7 @@
                     </table>
                 </div>
             </div>
-            <div class="row rowmargin"">
+            <div class="row rowmargin">
                 <div class="table-responsive">
                     <table id="tasks"  class="table table-striped">
                         <thead class="tablehead">
