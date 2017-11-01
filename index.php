@@ -43,7 +43,9 @@
             <div class="row buttonrow">
               <div id="controlPanel">
                 <form>
-                    <h2 id="lblProjectTitle">Project name here...</h2>
+                    <h4 id="lblProjectTitle">Project name here...</h4>
+                    <h4 id="lblProjects">Projects</h4>
+                    <hr>
                     <input id="btnNewProject" class="btn btn-success" type="button" value="New Project"/>
                     <input id="btnShowProjects" class="btn btn-success" type="button" value="Show Projects"/>
                 </form>
