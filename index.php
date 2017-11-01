@@ -33,7 +33,6 @@
                         <p class="text">Username</p><input name="username" class="text" type="text" />
                         <p class="text">Password</p><input name="password" class="text" type="password" />
                         <a id="submit" class="waves-effect waves-light btn" style="margin-bottom: 10px; float:right; color: black; background-color: white;">Login</a>
-                        
                     </form>
                 </div>
             </div>
@@ -43,8 +42,8 @@
               <div id="controlPanel">
                 <form>
                     <h2 id="lblProjectTitle">Project name here...</h2>
-                    <input id="btnNewProject" class="btn btn-success" type="button" value="New Project"/>
-                    <input id="btnShowProjects" class="btn btn-success" type="button" value="Show Projects"/>
+                    <input id="btnNewProject" class="btn btn-success" type="button" style="margin-left: 10px;" value="New Project"/>
+                    <input id="btnShowProjects" class="btn btn-success" type="button" style="margin-left: 10px;" value="Show Projects"/>
                 </form>
               </div>
             </div>
