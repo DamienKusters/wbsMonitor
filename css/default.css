@@ -1,6 +1,6 @@
 body
 {
-  margin: 0;
+    margin: 0;
 }
 
 .HeaderRow{
@@ -104,14 +104,14 @@ textarea {
     margin: 0;
 }
 
-#tasks, #btnNewTask {
-
-display: none;
-
+#tasks, #btnNewTask 
+{
+    display: none;
 }
 
-.skull_select {
- margin: 0px;
+.skull_select 
+{
+    margin: 0px;
 }
 
 h2
@@ -136,13 +136,13 @@ h2
     margin-right: 0px!important;
 }
 
-#Login{
+#btnLoginModal{
     color: white; 
     background-color: black; 
     border: 1px solid white;
 }
 
-#submit{
+#btnLogin{
     margin-bottom: 10px; 
     float:right; 
     color: black; 
@@ -186,4 +186,8 @@ h2
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 10px;
+}
+
+.brand-logo{
+    left: 10px;
 }
