@@ -255,30 +255,6 @@ $.ajax({
 const removeTask = e =>  console.error("unimplemented");
 
 $(document).ready(() => {
-    $("#lblProjectTitle").css("display", "none");
-    $("#btnShowProjects").css("display", "none");
-    
-    loadProjects();
-    $("#btnNewProject").click(newProject);
-    $('#projects').on("click", ".btnProjectRemove", e =>
-    {
-        e.preventDefault();
-        if (window.confirm("Are you sure you want to remove this item?"))
-            removeProject(e);
-    });
-    
-    $('#projects').on("click", ".btnProjectView", loadTasks);
-    $('#btnShowProjects').click(e =>
-    {
-        $("#tasks").hide();
-        $("#projects tbody").html("");
-        $("#projects").show();
-        $("#btnNewProject").css("display", "block");
-        $("#btnShowProjects").css("display", "none");
-        $("#lblProjectTitle").css("display", "none")
-        loadProjects();
-    });
-    
     // Get the modal
     var modal = document.getElementById('myModal');
 
@@ -306,6 +282,30 @@ $(document).ready(() => {
         modal.style.display = "none";
       }
     }
+
+    $("#lblProjectTitle").css("display", "none");
+    $("#btnShowProjects").css("display", "none");
+    
+    loadProjects();
+    $("#btnNewProject").click(newProject);
+    $('#projects').on("click", ".btnProjectRemove", e =>
+    {
+        e.preventDefault();
+        if (window.confirm("Are you sure you want to remove this item?"))
+            removeProject(e);
+    });
+    
+    $('#projects').on("click", ".btnProjectView", loadTasks);
+    $('#btnShowProjects').click(e =>
+    {
+        $("#tasks").hide();
+        $("#projects tbody").html("");
+        $("#projects").show();
+        $("#btnNewProject").css("display", "block");
+        $("#btnShowProjects").css("display", "none");
+        $("#lblProjectTitle").css("display", "none")
+        loadProjects();
+    });
 });
 
 /*
