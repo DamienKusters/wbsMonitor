@@ -212,6 +212,7 @@ const loadTasks = e => {
             $("#btnNewProject").css("display", "none");
             $("#btnShowProjects").css("display", "block");
             $("#lblProjectTitle").css("display", "block");
+            $("#lblProjecs").css("display", "none");
 
             const createTaskRowBound = createTaskRow.bind(null, data.users);
 
