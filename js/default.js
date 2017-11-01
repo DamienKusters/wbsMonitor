@@ -46,9 +46,9 @@ const timerSetup = e =>
 };
 
 const createProjectRow = (rowIndex, rowData) =>  $("<tr></tr>").data("dbId", rowData.id)
-    .append($("<td></td>").append(rowIndex))
-    .append($("<td></td>").append(rowData.name))
-    .append($("<td></td>").append(rowData.added.split(' ')[0]))
+    .append($("<td></td>").append(rowIndex).attr("class", "tblIndex"))
+    .append($("<td></td>").append(rowData.name).attr("class", "tblName"))
+    .append($("<td></td>").append(rowData.added.split(' ')[0]).attr("class", "tblDate"))
     .append($("<td></td>").append($("<input />")
       .attr({
         "class" : "btn btn-info btnProjectView", 
@@ -205,7 +205,7 @@ const loadTasks = e => {
         success: data =>
         {
             $("#lblProjectTitle").html("");
-            $("#lblProjectTitle").append("Tablename");
+            $("#lblProjectTitle").append($(e.target).closest("tr").find(".tblName").text());
             $("#tasks").show();
             $("#tasks tbody").html("");
             $("#projects").hide();
@@ -260,7 +260,7 @@ $(document).ready(() => {
     var modal = document.getElementById('myModal');
 
     // Get the button that opens the modal
-    var btn = document.getElementById("Login");
+    var btn = document.getElementById("btnLoginModal");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];

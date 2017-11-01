@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +19,7 @@
                         <ul class="right buttoncenter">
                             <form method="post" action="index.php">
                                 <li>
-                                    <a id="Login" class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>
+                                    <a id="btnLoginModal" class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>
                                 </li>
                                 <!--<li><a id="btnLogout" class="waves-effect waves-light btn" style="color: white; background-color: black; border: 1px solid white;">logout</a></li>
                                 <input type="hidden" name="logout" />-->
@@ -32,9 +33,9 @@
                 <div class="modal-content">
                     <form method="post" action="index.php">
                         <span class="close">&times;</span>
-                        <p class="text">Username</p><input name="username" class="text" type="text" />
-                        <p class="text">Password</p><input name="password" class="text" type="password" />
-                        <a id="submit" class="waves-effect waves-light btn">Login</a>
+                        <p class="text">Username</p><input id="username" name="username" class="text" type="text" />
+                        <p class="text">Password</p><input id="password" name="password" class="text" type="password" />
+                        <a id="btnLogin" class="waves-effect waves-light btn">Login</a>
                     </form>
                 </div>
             </div>
@@ -107,8 +108,9 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script src="css/jquery-select/js/jquery.select.js"></script>
         <script src="js/default.js"></script>
         <!-- Timer plugin -->
