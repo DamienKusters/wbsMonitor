@@ -1,4 +1,4 @@
-var timerObjectKusD;
+var timerObject;
 var getTime = 0;
 
 const convertToSeconds = time =>
@@ -9,7 +9,7 @@ const convertToSeconds = time =>
    	return seconds;
 };
 
-const timerSetupKusD = e =>
+const timerSetup = e =>
 {
     $("#tasks").find(".js-pause-timer").css("display","none");
     $("#tasks").find(".js-resume-timer").css("display","none");
@@ -20,10 +20,10 @@ const timerSetupKusD = e =>
         $(this).css("display","none");
         $(this).closest("tr").find(".js-pause-timer").css("display","block");
         
-        timerObjectKusD = $(this).closest("tr").find(".js-task-do");
+        timerObject = $(this).closest("tr").find(".js-task-do");
         getTime = convertToSeconds($(this).closest("tr").find(".js-task-do").val());
 
-        timerObjectKusD.timer( { "format" : "%H:%M:%S", "seconds" : getTime } );
+        timerObject.timer( { "format" : "%H:%M:%S", "seconds" : getTime } );
 	});
 	$(".js-pause-timer").on("click", function()
     {
@@ -31,8 +31,8 @@ const timerSetupKusD = e =>
         $(this).css("display","none");
         $(this).closest("tr").find(".js-resume-timer").css("display","block");
         
-        timerObjectKusD = $(this).closest("tr").find(".js-task-do");
-		timerObjectKusD.timer("pause");
+        timerObject = $(this).closest("tr").find(".js-task-do");
+		timerObject.timer("pause");
 	});
 	$(".js-resume-timer").on("click", function()
     {
@@ -40,8 +40,8 @@ const timerSetupKusD = e =>
         $(this).css("display","none");
         $(this).closest("tr").find(".js-pause-timer").css("display","block");
         
-        timerObjectKusD = $(this).closest("tr").find(".js-task-do");
-		timerObjectKusD.timer("resume");
+        timerObject = $(this).closest("tr").find(".js-task-do");
+		timerObject.timer("resume");
 	});
 };
 
@@ -218,7 +218,7 @@ const loadTasks = e => {
             $.each(data.tasks, (taskRowIndex, taskRowData) => $("#tasks tbody").append(createTaskRowBound(taskRowIndex + 1, taskRowData)));
 
             $(".fsSelect").select();
-            timerSetupKusD();
+            timerSetup();
         },
         error: data =>
         {
@@ -279,15 +279,6 @@ $(document).ready(() => {
         loadProjects();
     });
     
-    $('#login-trigger').click(e =>
-    {
-        $(this).next('#login-content').slideToggle();
-        $(this).toggleClass('active');
-        if ($(this).hasClass('active'))
-            $(this).find('span').html('&#x25B2;');
-        else
-            $(this).find('span').html('&#x25BC;');
-    });
     // Get the modal
     var modal = document.getElementById('myModal');
 
