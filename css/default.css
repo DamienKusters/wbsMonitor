@@ -143,10 +143,7 @@ h2
 }
 
 #btnLogin{
-    margin-bottom: 10px; 
-    float:right; 
-    color: black; 
-    background-color: white;
+    
 }
 
 .buttonrow{
@@ -190,4 +187,10 @@ h2
 
 .brand-logo{
     left: 10px;
+}
+
+#btnLogoutModal{
+    color: white; 
+    background-color: black; 
+    border: 1px solid white;
 }

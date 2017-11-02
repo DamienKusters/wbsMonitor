@@ -19,31 +19,31 @@
                         <ul class="right buttoncenter">
                             <form method="post" action="index.php">
                                 <li>
-                                    <a id="btnLoginModal" class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>
+                                    <a id="btnLoginModal" class="waves-effect waves-light btn modal-trigger" href="#LoginModal">Login</a>
                                 </li>
-                                <!--<li><a id="btnLogout" class="waves-effect waves-light btn" style="color: white; background-color: black; border: 1px solid white;">logout</a></li>
-                                <input type="hidden" name="logout" />-->
+                                <li>
+                                    <a id="btnLogoutModal" class="waves-effect waves-light btn modal-trigger" href="#LogoutModal">logout</a>
+                                </li>
                             </form>
                         </ul>
                     </div>
                 </nav>
             </div>
-            <!-- Modal Structure -->
-            <div id="myModal" class="modal">
+            <!--Login Modal-->
+            <div id="LoginModal" class="modal">
                 <div class="modal-content">
                     <form method="post" action="functions/login.php">
-                        <span class="close">&times;</span>
                         <p class="text">Username</p><input id="username" name="username" class="text" type="text" />
                         <p class="text">Password</p><input id="password" name="password" class="text" type="password" />
                         <input type="submit" id="btnLogin" class="waves-effect waves-light btn" value="log in">
                     </form>
                 </div>
             </div>
-
-            <div id="logoutModal" class="modal">
+            <!--Logout Modal-->
+            <div id="LogoutModal" class="modal">
                 <div class="modal-content">
                     <form method="post" action="functions/login.php">
-                       
+                        <h4>Are you sure that you want to logout.</h4>
                         <input type="submit" id="btnLogin" class="waves-effect waves-light btn" value="log out">
                     </form>
                 </div>
