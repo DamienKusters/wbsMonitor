@@ -31,11 +31,20 @@
             <!-- Modal Structure -->
             <div id="myModal" class="modal">
                 <div class="modal-content">
-                    <form method="post" action="index.php">
+                    <form method="post" action="functions/login.php">
                         <span class="close">&times;</span>
                         <p class="text">Username</p><input id="username" name="username" class="text" type="text" />
                         <p class="text">Password</p><input id="password" name="password" class="text" type="password" />
-                        <a id="btnLogin" class="waves-effect waves-light btn">Login</a>
+                        <input type="submit" id="btnLogin" class="waves-effect waves-light btn" value="log in">
+                    </form>
+                </div>
+            </div>
+
+            <div id="logoutModal" class="modal">
+                <div class="modal-content">
+                    <form method="post" action="functions/login.php">
+                       
+                        <input type="submit" id="btnLogin" class="waves-effect waves-light btn" value="log out">
                     </form>
                 </div>
             </div>

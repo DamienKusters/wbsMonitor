@@ -1,24 +1,25 @@
 <?php
-	include("../connect.php");
-	
+	session_start();
+
 	$username = filter_input(INPUT_POST, "username");
 	$password = filter_input(INPUT_POST, "password");
 
+	if(trim($username) != "" && trim($password) != "") {
+		include("../connect.php");
+		$sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
 
-	$sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+		$result = mysqli_query($conn ,$sql);
 
-	$result = mysqli_query($conn ,$sql);
+		if(mysqli_num_rows($result) == 1)
+		{
+			$_SESSION["loggedIn"] = true;
+			$_SESSION["username"] = $username;
+			
 
-	if(mysqli_num_rows($result) == 1)
-	{
-		$_SESSION["loggedIn"] = true;
-		$_SESSION["username"] = $username;
-		$_SESSION["username"] = $password;
+		}
+
+		mysqli_close($conn);
+
 	}
-
-	if(!isset($username) || trim($username) == '' && !isset($password) || trim($password) == ''){
-		echo "test";
-	}	
-
-	mysqli_close($conn);
+	header("location: ../index.php");
 ?>
