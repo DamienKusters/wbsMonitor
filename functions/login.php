@@ -10,12 +10,14 @@
 
 		$result = mysqli_query($conn ,$sql);
 
+
 		if(mysqli_num_rows($result) == 1)
 		{
-			$_SESSION["loggedIn"] = true;
-			$_SESSION["username"] = $username;
-			
+			$userData = mysqli_fetch_assoc($result);
 
+			$_SESSION["loggedIn"] = true;
+			$_SESSION["userId"] = $userData["id"];
+			$_SESSION["username"] = $username;
 		}
 
 		mysqli_close($conn);

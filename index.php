@@ -18,12 +18,21 @@
                         <a href="#" class="left brand-logo white-text">WBS</a>
                         <ul class="right buttoncenter">
                             <form method="post" action="index.php">
-                                <li>
-                                    <a id="btnLoginModal" class="waves-effect waves-light btn modal-trigger" href="#LoginModal">Login</a>
-                                </li>
+                                <?php 
+                                if(isset($_SESSION["loggedIn"])) {
+                                ?>
                                 <li>
                                     <a id="btnLogoutModal" class="waves-effect waves-light btn modal-trigger" href="#LogoutModal">logout</a>
                                 </li>
+                                <?php
+                                }else {
+                                ?>
+                                <li>
+                                    <a id="btnLoginModal" class="waves-effect waves-light btn modal-trigger" href="#LoginModal">Login</a>
+                                </li>
+                                <?php 
+                                }
+                                ?>
                             </form>
                         </ul>
                     </div>
