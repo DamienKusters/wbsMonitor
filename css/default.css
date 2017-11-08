@@ -194,3 +194,7 @@ h2
     background-color: black; 
     border: 1px solid white;
 }
+
+#btnAddTask{
+    margin-right: 10px;
+}

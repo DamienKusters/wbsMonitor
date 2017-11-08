@@ -4,7 +4,7 @@ include("../connect.php");
 $projectId = $_POST["projectId"];
 $taskName = $_POST["taskName"];
 
-$sql = "INSERT INTO `$database`.`task` (`id`, `name`, `added`) VALUES (NULL,'{$projectName}', CURRENT_TIMESTAMP)";
+$sql = "INSERT INTO `task` (`name`) VALUES ('$taskName')";
 if(mysqli_query($conn ,$sql))
 {
   echo "new project added!";

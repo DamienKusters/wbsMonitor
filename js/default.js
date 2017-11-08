@@ -211,6 +211,7 @@ const loadTasks = e => {
             $("#projects").hide();
             $("#btnNewProject").css("display", "none");
             $("#btnShowProjects").css("display", "block");
+            $("#btnAddTask").css("display", "block");
             $("#lblProjectTitle").css("display", "block");
             $("#lblProjects").css("display", "none");
 
@@ -259,9 +260,11 @@ $(document).ready(() => {
     
     $('#LoginModal').modal();
     $('#LogoutModal').modal();
+    $('#TaskModal').modal();
 
     $("#lblProjectTitle").css("display", "none");
     $("#btnShowProjects").css("display", "none");
+    $("#btnAddTask").css("display", "none");
     
     loadProjects();
     $("#btnNewProject").click(newProject);
@@ -280,6 +283,7 @@ $(document).ready(() => {
         $("#projects").show();
         $("#btnNewProject").css("display", "block");
         $("#btnShowProjects").css("display", "none");
+        $("#btnAddTask").css("display", "none");
         $("#lblProjectTitle").css("display", "none");
         $("#lblProjects").css("display", "block");
         loadProjects();

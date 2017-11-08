@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="css/default.css" rel="stylesheet">
         <link rel="icon" href="img/logo.png" type="image/png" />
+        <?php $_SESSION["loggedIn"] = true; ?>
     </head>
     <body>
     <!-- Header  -->
@@ -57,6 +58,36 @@
                     </form>
                 </div>
             </div>
+            <!--add task Modal-->
+            <div id="TaskModal" class="modal">
+                <div class="modal-content">
+                    <form method="post" action="functions/newTask.php">
+                        <input class="form-control" type="text">
+                        <input class="form-control" type="number">
+                        <div class="skull_select" skull="1509729793158">
+                            <select class="fsSelect">
+                                <option>j@k3_7h3_h@ck3rm@nn</option>
+                                <option>XxD3m0n_m@nn69xX</option>
+                                <option>kevinoomen</option>
+                            </select>
+                            <div class="skull_select_mask"></div>
+                        </div>
+                        <div class="skull_select" skull="1509729793159">
+                            <select class="fsSelect">
+                                <option value="must">must</option>
+                                <option value="could">could</option>
+                                <option value="should">should</option>
+                                <option value="won't">won't</option>
+                            </select>
+                            <div class="skull_select_mask"></div>
+                        </div>
+                        <input class="form-control" type="text">
+                        <input class="form-control js-task-do" type="text">
+                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control"></textarea>
+                    </form>
+                </div>
+            </div>
             <!-- Projects Table -->
             <div class="container-fluid">
             <div class="row buttonrow">
@@ -66,7 +97,14 @@
                     <h4 id="lblProjects">Projects</h4>
                     <hr>
                     <input id="btnNewProject" class="btn btn-success" type="button" value="New Project"/>
-                    <input id="btnShowProjects" class="btn btn-success" type="button" value="Show Projects"/>
+                    <input id="btnShowProjects" class="btn btn-success left" type="button" value="Show Projects"/>
+                    <?php 
+                        if(isset($_SESSION["loggedIn"])) {
+                    ?>
+                    <a id="btnAddTask" class="waves-effect waves-light btn modal-trigger right" href="#TaskModal">Add task</a>
+                    <?php
+                        }
+                    ?>
                 </form>
               </div>
             </div>
