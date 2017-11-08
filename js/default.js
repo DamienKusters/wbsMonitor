@@ -1,5 +1,7 @@
-var timerObject;
+let timerObject;
 var getTime = 0;
+
+let currentProjectId = 0;
 
 const convertToSeconds = time =>
 {
@@ -229,12 +231,12 @@ const loadTasks = e => {
     });
     
     $("#timePlanned").html("");
-    $("#timePlanned").append(getTotalPlannedTime());
+    //$("#timePlanned").append(getTotalPlannedTime());
     
     $("#timeDone").html("");
     $("#timeDone").append("00:00:00");
 }
-
+/*
 const getTotalPlannedTime = () =>
 $.ajax({
     type : "POST",
@@ -246,13 +248,14 @@ $.ajax({
     success: data =>
     {
         console.log(data);
-        return data;
+        
     },
     error: data =>
     {
         console.log(data);
     }
 });
+*/
 
 const removeTask = e =>  console.error("unimplemented");
 
@@ -275,7 +278,11 @@ $(document).ready(() => {
             removeProject(e);
     });
     
-    $('#projects').on("click", ".btnProjectView", loadTasks);
+    $('#projects').on("click", ".btnProjectView", e => {
+      loadTasks(e);
+      currentProjectId = $(e.target).closest("tr").data("dbId");
+      console.log(e); 
+    });
     $('#btnShowProjects').click(e =>
     {
         $("#tasks").hide();

@@ -1,11 +1,11 @@
 <?php
-$servername = "localhost";
-$username   = "root";
-$password   = "root";
-$database   = "wbs";
+$dbServername = "localhost";
+$dbUsername   = "root";
+$dbPassword   = "test";
+$dbDatabase   = "wbs_monitor";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect($dbServername, $dbUsername , $dbPassword, $dbDatabase );
 
 // Check connection
 if (!$conn)
